@@ -20,12 +20,20 @@ the user information.
 #### Application where user is already logged (B)
 
 ```
+var config = {
+  appWhereYouWantLoginTheUserURL: 'https://example.com',
+  strategy: {
+    algorithm: 'aes-256-ctr',
+    secret: 'YOUR SECRET HERE'
+  }
+}
+
 var Crypto = new require('passport-symmetric-token').Crypto;
-var crypto = new Crypto({ algorithm: 'aes-256-ctr', secret: 'YOUR SECRET HERE' });
+var crypto = new Crypto(config.strategy);
 
 var encryptedField = crypto.encrypt(user.field);
 
-app.redirect(config.appWhereYouWantLoginTheUserURL + '/auth/symmetric-token?token=' + encryptedField)
+app.redirect(config. + '/auth/symmetric-token?token=' + encryptedField)
 ```
 
 #### Application where to you want login the user (A)
@@ -35,15 +43,23 @@ The symmetric-token authentication strategy authenticates users using a token
 created encrypting `user.field`. The strategy requires a `verify` callback,
 which accepts these credentials and calls `done` providing a user.
 ```
-    passport.use(new SymmetricTokenStrategy (
-      function(decryptedToken , done) {
-        User.findOne({ field: decryptedToken }, function (err, user) {
-          if (err) { return done(err); }
-          if (!user) { return done(null, false); }
-          return done(null, user);
-        });
-      }
-    ));
+var config = {
+  validRequestHosts: ['www.example.com, example.com'],
+  strategy: {
+    algorithm: 'aes-256-ctr',
+    secret: 'YOUR SECRET HERE'
+  }
+}
+
+passport.use(new SymmetricTokenStrategy (config,
+  function(decryptedToken , done) {
+    User.findOne({ field: decryptedToken }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) { return done(null, false); }
+      return done(null, user);
+    });
+  }
+));
 ```
 
 ##### Authenticate Requests
