@@ -50,7 +50,7 @@ var strategy = {
 }
 
 passport.use(new SymmetricTokenStrategy (strategy,
-  function(decryptedToken , done) {
+  function(decryptedToken, done) {
     User.findOne({ field: decryptedToken }, function (err, user) {
       if (err) { return done(err); }
       if (!user) { return done(null, false); }
@@ -69,7 +69,7 @@ For example, as route middleware in an [Express](http://expressjs.com/)
 application:
 ```
   router.get('/auth/symmetric-token',
-    passport.authenticate('symmetric-token'));
+    passport.authenticate('symmetric-token', { failureRedirect: '/token-error' }));
 ```
 
 ## Credits
