@@ -66,4 +66,4 @@ application:
 
 [The MIT License](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2011-2014 [Jacopo Daeli](http://www.jacopodaeli.com)
+Copyright (c) 2015 [Jacopo Daeli](http://www.jacopodaeli.com)
