@@ -43,15 +43,13 @@ The symmetric-token authentication strategy authenticates users using a token
 created encrypting `user.field`. The strategy requires a `verify` callback,
 which accepts these credentials and calls `done` providing a user.
 ```
-var config = {
-  validRequestHosts: ['www.example.com, example.com'],
-  strategy: {
+var strategy = {
     algorithm: 'aes-256-ctr',
     secret: 'YOUR SECRET HERE'
   }
 }
 
-passport.use(new SymmetricTokenStrategy (config,
+passport.use(new SymmetricTokenStrategy (strategy,
   function(decryptedToken , done) {
     User.findOne({ field: decryptedToken }, function (err, user) {
       if (err) { return done(err); }
