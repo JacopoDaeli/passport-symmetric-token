@@ -68,7 +68,10 @@ For example, as route middleware in an [Express](http://expressjs.com/)
 application:
 ```
   router.get('/auth/symmetric-token',
-    passport.authenticate('symmetric-token', { failureRedirect: '/token-error' }));
+    passport.authenticate('symmetric-token'),
+    function (req, res) {
+      res.redirect('/somewhere')
+    });
 ```
 
 ## Credits
