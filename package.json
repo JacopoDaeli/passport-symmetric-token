@@ -1,0 +1,49 @@
+{
+  "name": "passport-symmetric-token",
+  "version": "1.0.0",
+  "description": "Symmetric token based auth strategy for Passport.",
+  "keywords": [
+    "passport",
+    "token",
+    "auth",
+    "authn",
+    "authentication"
+  ],
+  "author": {
+    "name": "Jacopo Daeli",
+    "email": "jacopo.daeli@gmail.com",
+    "url": "http://www.jacopodaeli.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JacopoDaeli/passport-symmetric-token.git"
+  },
+  "bugs": {
+    "url": "http://github.com/JacopoDaeli/passport-symmetric-token/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "main": "./lib",
+  "dependencies": {
+    "passport-strategy": "1.x.x"
+  },
+  "devDependencies": {
+    "mocha": "1.x.x",
+    "chai": "1.x.x",
+    "chai-passport-strategy": "0.1.x"
+  },
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "maintainers": [
+    {
+      "name": "JacopoDaeli",
+      "email": "jacopo.daeli@gmail.com"
+    }
+  ],
+  "homepage": "https://github.com/JacopoDaeli/passport-symmetric-token#readme"
+}
