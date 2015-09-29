@@ -44,9 +44,8 @@ created encrypting `user.field`. The strategy requires a `verify` callback,
 which accepts these credentials and calls `done` providing a user.
 ```
 var strategy = {
-    algorithm: 'aes-256-ctr',
-    secret: 'YOUR SECRET HERE'
-  }
+  algorithm: 'aes-256-ctr',
+  secret: 'YOUR SECRET HERE'
 }
 
 passport.use(new SymmetricTokenStrategy (strategy,
